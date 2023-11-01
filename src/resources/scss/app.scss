@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: sans-serif;
+  line-height: 35px;
+}
+
+.carousel {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.calendar-name {
+  display: flex;
+  flex-direction: row;
+
+  .calendar {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    .month-year {
+      background-color: rgb(240, 55, 55);
+      color: white;
+      font-size: 12px;
+      padding: 2px;
+      margin: 0;
+    }
+    .day {
+      font-size: 30px;
+      margin: 5px 0 5px 0;
+      padding: 0;
+    }
+    .day-of-week {
+      border-top: 1px groove #c7c1c5;
+      margin: 0;
+      font-size: 12px;
+    }
+  }
+  .name-ticket {
+    margin: 0 0 0 20px;
+    font-size: 20px;
+    font-family: sans-serif;
+  }
+}
+
+.date {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 13px;
+  .duration {
+    margin-left: 20px;
+    .time-start {
+      margin: 0;
+    }
+    .time-finish {
+      margin: 0;
+    }
+  }
+}
+
+.location {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 13px;
+  .address {
+    margin: 0;
+    margin-left: 20px;
+  }
+}
+
+.seat {
+  font-size: 12px;
+  background-color: rgb(190, 188, 188);
+  margin: 2px;
+  border-radius: 5px;
+  padding: 0;
+}
+#seat-container {
+  border-radius: 5px;
+  cursor: pointer;
+}
+.seat.selected {
+  background-color: rgb(9, 163, 9);
+}
+
+.seat.booked {
+  background-color: red;
+}
+// #seat-container {
+//   display: flex;
+//   flex-wrap: wrap;
+//   gap: 10px;
+//   .seat {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+
+//   }
+
+// }
