@@ -17,11 +17,11 @@ bookButton.addEventListener("click", function () {
   }
 });
 
-// const progressBar = document.getElementById("progress-bar");
-// const progressFirst = document.getElementById("progess-first");
-// const progressSecond = document.getElementById("progess-second");
-// const progressThird = document.getElementById("progess-third");
+const progressBar = document.getElementById("progress-bar");
+const progressFirst = document.getElementById("progess-first");
+const progressSecond = document.getElementById("progess-second");
+const progressThird = document.getElementById("progess-third");
 
-// btnNext.addEventListener("click", () => {
-//   // if (currentProgress == 1)
-// });
+btnNext.addEventListener("click", () => {
+  // if (currentProgress == 1)
+});
