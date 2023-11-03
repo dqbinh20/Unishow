@@ -13,7 +13,7 @@
   </div>
 
   {{! progress 1 }}
-  <div class="mt-2 container" id="container-progress-first">
+  <div class="mt-2 container" style="display: none;" id="container-progress-first">
     <div class="text-center">
       <p>Chọn vị trí ghế ngồi</p>
       {{#each chunkedSeats}}
@@ -58,9 +58,16 @@
       </div>
     </div>
 
-    <div class="mt-4 container">
-      <button class="btn btn-sm btn-danger" id="btn-next-progress-1">Next</button>
+    {{!-- <div class="mt-4 container text-right bg-dark">
+      <button class="btn btn-sm btn-danger ml-auto" id="btn-next-progress-1">Next</button>
       <div class="invalid-feedback" id="seatError">
+        Làm ơn chọn ít nhất một ghế
+      </div>
+    </div> --}}
+
+    <div class="mt-4 bg-dark container position-relative">
+      <button class="btn btn-sm btn-danger position-absolute end-0" id="btn-next-progress-1">Next</button>
+      <div class="invalid-feedback position-absolute" id="seatError">
         Làm ơn chọn ít nhất một ghế
       </div>
     </div>
@@ -92,20 +99,32 @@
       </div>
       <small id="phoneHelp" class="form-text">Vui lòng nhập số điện thoại hợp lệ (10 chữ số).</small>
     </div>
-    <button class="btn btn-primary" id="btn-next-progress-2">Submit</button>
-    <div class="mt-2">
-      <p id="backToProgress1">Back to step 1</p>
+    <div class="position-relative" style="height: 50px;">
+      <button class="btn btn-primary position-absolute top-0 end-0" id="btn-next-progress-2">Submit</button>
+      <p class="position-absolute bottom-0" id="backToProgress1"><em>Back to step 1</em></p>
     </div>
   </div>
 
 
   {{! progress 3 }}
   <div class="container mt-5" id="container-progress-third">
-    Progress 3
+    <h3>Thanh toán</h3>
+    <img src="/img/qr.jpg" class="img-fluid mx-auto d-block" alt="" style="max-width: 50%; height: auto;">
+    <img src="/img/banking.jpg" class="img-fluid mx-auto d-block" alt="">
+
+    <div class="position-relative" style="height: 50px;">
+      <button class="btn btn-success position-absolute top-0 end-0">Xác nhận đã thanh toán</button>
+      <p class="position-absolute bottom-0" id="backToProgress2"><em>Back to step 2</em></p>
+    </div>
+    {{!--
     <div class="mt-2">
       <p id="backToProgress2">Back to step 2</p>
-    </div>
+    </div> --}}
   </div>
+
+
+
+</div>
 
 
 </div>
