@@ -1,36 +1,112 @@
 <div class="container">
   <div class="position-relative m-4">
     <div class="progress" style="height: 1px;">
-      <div class="progress-bar bg-danger" id="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0"
+      <div class="progress-bar bg-danger" id="progress-bar" role="progressbar" style="width: 0;" aria-valuenow="0"
         aria-valuemin="0" aria-valuemax="100"></div>
     </div>
-    <button type="button" class="position-absolute top-0 start-0 translate-middle btn btn-sm btn-danger rounded-pill"
+    <button type="button" class="position-absolute top-0 start-0 translate-middle btn btn-sm  rounded-pill"
       id="progess-first" style="width: 2rem; height:2rem;">1</button>
-    <button type="button"
-      class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-secondary rounded-pill"
+    <button type="button" class="position-absolute top-0 start-50 translate-middle btn btn-sm rounded-pill"
       id="progess-second" style="width: 2rem; height:2rem;">2</button>
-    <button type="button"
-      class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-secondary rounded-pill"
+    <button type="button" class="position-absolute top-0 start-100 translate-middle btn btn-sm rounded-pill"
       id="progess-third" style="width: 2rem; height:2rem;">3</button>
   </div>
 
   {{! progress 1 }}
-  <div class="mt-2 container text-center">
-    <p>Chọn vị trí ghế ngồi</p>
-    {{#each chunkedSeats}}
-    <div class="row">
-      {{#each this}}
-      <div class="seat col {{#if this.booked}}booked{{/if}}" data-seat="{{this.name}}">{{this.name}}</div>
+  <div class="mt-2 container" id="container-progress-first">
+    <div class="text-center">
+      <p>Chọn vị trí ghế ngồi</p>
+      {{#each chunkedSeats}}
+      <div class="row">
+        {{#each this}}
+        <div class="seat col {{#if this.booked}}booked{{/if}}" data-seat="{{this.name}}">{{this.name}}</div>
+        {{/each}}
+      </div>
       {{/each}}
+
+      <div class="container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Loại</th>
+              <th scope="col">Tên ghế</th>
+              <th scope="col">Số Lượng</th>
+              <th scope="col">Đơn giá</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Vip</th>
+              <td id="seat-vip-name-table"></td>
+              <td id="number-seat-vip-table"></td>
+              <td>1,2 tỷ</td>
+            </tr>
+            <tr>
+              <th scope="row">Thường</th>
+              <td id="seat-normal-name-table"></td>
+              <td id="number-seat-normal-table"></td>
+              <td>1 tỷ</td>
+            </tr>
+            <tr>
+              <th scope="row">Tổng tiền: </th>
+              <td colspan="2" style="text-align: right" id="total-money"></td>
+              <td>tỷ</td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-    {{/each}}
 
-    <div class="container mt-5 text-center">
-      <button class="btn btn-sm btn-danger" id="btn-next">Next</button>
-    </div>  
-    {{! progress 2 }}
-    
-    {{! progress 3 }}
-
+    <div class="mt-4 container">
+      <button class="btn btn-sm btn-danger" id="btn-next-progress-1">Next</button>
+      <div class="invalid-feedback" id="seatError">
+        Làm ơn chọn ít nhất một ghế
+      </div>
+    </div>
   </div>
-  <script src="/script/ticket.js"></script>
+
+
+  {{! progress 2 }}
+  <div class="container mt-5" id="container-progress-second">
+    <div class="mb-3">
+      <label for="fullName" class="form-label">Họ và tên</label>
+      <input type="text" class="form-control" id="fullName" required>
+      <div class="invalid-feedback" id="fullNameError">
+        Please provide a full name.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="inputEmail" class="form-label">Địa chỉ email</label>
+      <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" required>
+      <div class="invalid-feedback" id="emailError">
+        Please provide a email
+      </div>
+      <div id="emailHelp" class="form-text">Chúng tôi sẽ không chia sẻ email của bạn với bất kỳ ai.</div>
+    </div>
+    <div class="mb-3">
+      <label for="phoneNumber" class="form-label">Số điện thoại</label>
+      <input type="tel" class="form-control" id="phoneNumber" pattern="[0-9]{10}" required>
+      <div class="invalid-feedback" id="phoneNumberError">
+        Please provide a phone number
+      </div>
+      <small id="phoneHelp" class="form-text">Vui lòng nhập số điện thoại hợp lệ (10 chữ số).</small>
+    </div>
+    <button class="btn btn-primary" id="btn-next-progress-2">Submit</button>
+    <div class="mt-2">
+      <p id="backToProgress1">Back to step 1</p>
+    </div>
+  </div>
+
+
+  {{! progress 3 }}
+  <div class="container mt-5" id="container-progress-third">
+    Progress 3
+    <div class="mt-2">
+      <p id="backToProgress2">Back to step 2</p>
+    </div>
+  </div>
+
+
+</div>
+<script src="/script/ticket.js"></script>
