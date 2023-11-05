@@ -1,14 +1,13 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 function connect() {
-  const uri =
-    "mongodb+srv://Quangbinh:bAYzohS4WtsNfi6I@cluster0.kaluzja.mongodb.net/unishow?retryWrites=true&w=majority";
   const connectionParams = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   };
   mongoose
-    .connect(uri, connectionParams)
+    .connect(process.env.DATABASE_URL, connectionParams)
     .then(() => {
       console.log("Connected database");
     })
