@@ -29,23 +29,41 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
+    <script>
+      var nextButton = document.querySelector('.carousel-control-next');
+      function clickNext() {
+        nextButton.click();
+      }
+      setInterval(clickNext, 5000);
+    </script>
   </div>
 
 
+
+  <h1 class="mt-5">[Unishow - âm nhạc 2023] The Show Of University Student</h1>
+
+  <div class="mt-5 mb-3">
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button id="slide-1" class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+          type="button" role="tab" aria-controls="nav-home" aria-selected="true">Giới thiệu</button>
+        <button id="slide-2" class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+          type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Share Warmth</button>
+        <button id="slide-3" class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
+          type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Đặt ghế</button>
+      </div>
+    </nav>
+  </div>
 
 
   <!-- <div class="mb-5">
             <img src="avt.jpg" class="img-fluid rounded" alt="">
         </div> -->
-  <h1 class="mt-5">[Unishow - âm nhạc 2023] The Show Of University Student</h1>
-
-         <div class="mt-3 mb-2">
-      <button id="slide-1" class="btn btn-success" style="width=33%;">Giới thiệu</button>
-      <button id="slide-2" class="btn btn-success" style="width=33%;">Share Warmth</button>
-      <button id="slide-3" class="btn btn-success" style="width=33%;">Đặt ghế</button>
-         </div>
-
-
+  {{!-- <div class="mt-3 mb-2">
+    <button id="slide-1" class="btn btn-success" style="width=33%;">Giới thiệu</button>
+    <button id="slide-2" class="btn btn-success" style="width=33%;">Share Warmth</button>
+    <button id="slide-3" class="btn btn-success" style="width=33%;">Đặt ghế</button>
+  </div> --}}
   {{!-- <div class="row mt-3 mb-2">
     <div class="col">
       <button id="slide-1" class="btn btn-success w-100">Giới thiệu</button>
@@ -57,6 +75,7 @@
       <button id="slide-3" class="btn btn-success w-100">Đặt ghế</button>
     </div>
   </div> --}}
+
   <div id="carouselExample" class="carousel slide">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -150,9 +169,9 @@
         <div class="p-2">
           <div class="calendar-name">
             <div class="calendar">
-              <p class="month-year">Th10, 2023</p>
-              <p class="day">28</p>
-              <p class="day-of-week">Monday</p>
+              <p class="month-year">Th12, 2023</p>
+              <p class="day">08</p>
+              <p class="day-of-week">Friday</p>
             </div>
             <p class="name-ticket">
               [Unishow - âm nhạc 2023] Kết nối âm nhạc - kết nối yêu thương
@@ -161,17 +180,21 @@
           <div class="date mt-3">
             <i class="fa-solid fa-calendar-days"></i>
             <div class="duration">
-              <p class="time-start">07:00, Thu 2, 17 Th11, 2023</p>
-              <p class="time-finish">09:00, Thu 2, 17 Th11, 2023</p>
+              <p class="time-start">18:30, Thứ 2, 08 Th12, 2023</p>
+              <p class="time-finish">09:00, Thứ 2, 08 Th12, 2023</p>
             </div>
           </div>
           <div class="location mt-2">
             <i class="fa-solid fa-location-dot"></i>
-            <p class="address">643 Đ. Điện Biên Phủ, Phường 1, Quận 3, Thành phố
-              Hồ Chí Minh</p>
+            <p class="address">
+              <a href="https://maps.app.goo.gl/Pib9g7DCWLQyBhgE8" style="text-decoration: none; color:black;">
+                643 Đ. Điện Biên Phủ, Phường 1, Quận 3, Thành phố
+                Hồ Chí Minh
+              </a>
+            </p>
           </div>
           <div class="container text-center m-2">
-            <a href="/ticket" type="button" class="btn btn-success" id="book-button">Đặt vé</a>
+            <a href="/ticket" type="button" class="btn btn-success" id="book-button">Tiến hành đặt ghế</a>
           </div>
         </div>
       </div>
@@ -204,13 +227,7 @@
     myCarousel.to(2);
   });</script>
 
-<script>
-  var nextButton = document.querySelector('.carousel-control-next');
-  function clickNext() {
-    nextButton.click();
-  }
-  setInterval(clickNext, 5000);
-</script>
+
 
 
 {{!-- <ul class="nav nav-tabs" id="myTab" role="tablist">
