@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="/css/app.css" />
+<div>
+  <p id="hashData" style="display: none;">{{hashData}}</p>
+  <style>
+    .container{ display: flex; flex-direction: column; align-items: center;
+    padding-top: 50px;}
+  </style>
+  <div class="container">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-md-4 text-center">
+          <img
+            src=""
+            class="img-fluid rounded-start"
+            id="qrCodeTicket"
+            alt="QR Code Ticket"
+          />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <span>
+              <h5 class="card-title fs-1">Đặt vé thành công</h5>
+              <p class="card-text fs-6">Họ và tên: {{dataForm.name}}</p>
+              <p class="card-text fs-6">Email: {{dataForm.email}}</p>
+              <p class="card-text fs-6">Số điện thoại: {{dataForm.phone}}</p>
+              <button class="btn btn-success" id="saveButton">Save ticket</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/script/ticket_booking_successful.js"></script>
+
+{{!-- <div class="container text-center">
+  <h1>Đặt vé thành công</h1>
+  <div class="m-5">
+    <img id="qrCodeTicket" alt="QR Code Ticket" />
+    <span>
+      <p>Họ và tên: {{dataForm.name}}</p>
+      <p>Email: {{dataForm.email}}</p>
+      <p>Số điện thoại: {{dataForm.phone}}</p>
+      <p>Ghế đã đặt: {{dataForm.seats}}</p>
+    </span>
+  </div>
+  <div class="m-2">
+    <button class="btn btn-success" id="saveButton">Save ticket</button>
+  </div>
+</div> --}}
+
+{{! task today: 
+    - add priavte key to ticket -- done
+    - design page tiket-success
+    - save data when book ticket 
+    - design list seats in page ticket  -- process
+    - create page admin to show user-ticket-seats
+    - api check ticket - app android
+ }}

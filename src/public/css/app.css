@@ -3,11 +3,34 @@
   padding: 0;
   box-sizing: border-box; }
 
+.container {
+  animation: fadein 1s ease-in-out; }
+
+@keyframes fadein {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+body {
+  background: linear-gradient(-45deg, #dd9f8c, #daa2b6, #83bbcf, #6db6a5);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh; }
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%; }
+  50% {
+    background-position: 100% 50%; }
+  100% {
+    background-position: 0% 50%; } }
+
 h1 {
-  font-family: sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   line-height: 35px; }
 
-.carousel {
+.carousel-img {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; }
@@ -16,6 +39,9 @@ h1 {
   display: flex;
   flex-direction: row; }
   .calendar-name .calendar {
+    max-width: 100px;
+    min-width: 85px;
+    background-color: white;
     text-align: center;
     display: flex;
     flex-direction: column;

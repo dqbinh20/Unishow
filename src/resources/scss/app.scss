@@ -3,13 +3,58 @@
   padding: 0;
   box-sizing: border-box;
 }
+.container {
+  animation: fadein 1s ease-in-out;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+// body {
+//   background-image: url("https://images.unsplash.com/photo-1488866022504-f2584929ca5f?auto=format&fit=crop&w=1486&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+//   background-size: cover;
+//   margin: 0;
+//   background-repeat: no-repeat;
+//   background-position: 0 0;
+//   transition: 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+// }
+
+body {
+  background: linear-gradient(
+    -45deg,
+    #dd9f8c,
+    rgb(218, 162, 182),
+    #83bbcf,
+    #6db6a5
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
 h1 {
-  font-family: sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   line-height: 35px;
 }
 
-.carousel {
+.carousel-img {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -19,6 +64,9 @@ h1 {
   flex-direction: row;
 
   .calendar {
+    max-width: 100px;
+    min-width: 85px;
+    background-color: white;
     text-align: center;
     display: flex;
     flex-direction: column;
