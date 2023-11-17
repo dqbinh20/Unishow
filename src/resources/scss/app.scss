@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 @keyframes fadein {
@@ -12,14 +13,6 @@
     opacity: 1;
   }
 }
-// body {
-//   background-image: url("https://images.unsplash.com/photo-1488866022504-f2584929ca5f?auto=format&fit=crop&w=1486&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
-//   background-size: cover;
-//   margin: 0;
-//   background-repeat: no-repeat;
-//   background-position: 0 0;
-//   transition: 2s cubic-bezier(0.645, 0.045, 0.355, 1);
-// }
 
 body {
   background: linear-gradient(
@@ -36,7 +29,7 @@ body {
 
 // nav-tab - home page
 .nav-tabs .nav-link.active {
-  background-color: #147929;
+  background-color: #305838;
   color: #ffffff;
 }
 .nav-tabs .nav-link:not(.active) {
@@ -103,7 +96,6 @@ h1 {
   .name-ticket {
     margin: 0 0 0 20px;
     font-size: 20px;
-    font-family: sans-serif;
   }
 }
 
@@ -152,15 +144,3 @@ h1 {
 .seat.booked {
   background-color: red;
 }
-// #seat-container {
-//   display: flex;
-//   flex-wrap: wrap;
-//   gap: 10px;
-//   .seat {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-
-//   }
-
-// }

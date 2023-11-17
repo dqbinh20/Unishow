@@ -58,7 +58,7 @@ function displayProgress3() {
   contentsProgressThird.style.display = "block";
 }
 
-displayProgress3();
+displayProgress1();
 
 // const seats = document.querySelectorAll(".seat:not(.booked)");
 // const totalMoney = document.getElementById("total-money");

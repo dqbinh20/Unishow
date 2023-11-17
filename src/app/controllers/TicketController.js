@@ -1,8 +1,3 @@
-// const util = require("util");
-// const mysql = require("../../config/db/mysql.js");
-// const executeAsync = util
-//   .promisify(mysql.connection.execute)
-//   .bind(mysql.connection);
 const tickets = require("./models/tickets");
 
 class TicketController {
@@ -75,10 +70,21 @@ class TicketController {
       phone: dataForm.phone,
       hashCode: hashData,
     });
-    newTicket
-      .save()
-      .then((result) => {
-        // send ticket to front-end
+
+    tickets
+      .count()
+      .then((quantity) => {
+        if (quantity < 150) {
+          return newTicket.save();
+        } else {
+          console.log(quantity);
+
+          res.send(
+            "<h4>Rất xin lỗi, số lượng vé miễn phí đã hết.\nVui lòng liên hệ 0562212002\nXin cảm ơn !</h4>"
+          );
+        }
+      })
+      .then((saveTicket) => {
         res.render("ticket_booking_successful", { hashData, dataForm });
       })
       .catch((err) => {
