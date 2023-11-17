@@ -69,6 +69,7 @@ class TicketController {
       email: dataForm.email,
       phone: dataForm.phone,
       hashCode: hashData,
+      donate: dataForm.donate,
     });
 
     tickets

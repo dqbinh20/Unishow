@@ -175,6 +175,7 @@ postFormTicketBtn.addEventListener("click", () => {
   var fullNameInput = document.getElementById("fullName").value;
   var emailInput = document.getElementById("inputEmail").value;
   var phoneInput = document.getElementById("phoneNumber").value;
+  var donateInput = document.getElementById("donate-input").value;
   // var seatNameInput = [];
   // document.querySelectorAll(".selected").forEach((seat) => {
   //   seatNameInput.push(seat.dataset.seat);
@@ -201,6 +202,12 @@ postFormTicketBtn.addEventListener("click", () => {
   phoneField.name = "phone";
   phoneField.value = phoneInput;
   form.appendChild(phoneField);
+
+  var donateField = document.createElement("input");
+  donateField.type = "hidden";
+  donateField.name = "donate";
+  donateField.value = donateInput;
+  form.appendChild(donateField);
 
   // var seatNameField = document.createElement("input");
   // seatNameField.type = "hidden";
