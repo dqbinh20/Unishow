@@ -2,13 +2,13 @@ const Tickets = require("./models/tickets");
 // const mysqlDatabase = require("../../config/db/mysql.js");
 
 class ApiController {
-  chekcValidateQRCode(req, res, next) {
+  checkValidateQRCode(req, res, next) {
     Tickets.find({ hashCode: req.query.hashcode })
       .then((result) => {
         result = result[0];
         res.json({
           status: "valid",
-          message: `Name: ${result.name}\nEmail: ${result.email}\nPhone: ${result.phone}`,
+          message: `Name: ${result.name}\nEmail: ${result.email}\nPhone: ${result.phone}\nDonate: ${result.donate}`,
         });
       })
       .catch((err) => {
