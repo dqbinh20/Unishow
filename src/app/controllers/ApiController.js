@@ -1,5 +1,4 @@
 const Tickets = require("./models/tickets");
-// const mysqlDatabase = require("../../config/db/mysql.js");
 
 class ApiController {
   checkValidateQRCode(req, res, next) {
@@ -17,32 +16,6 @@ class ApiController {
           message: "ticket error",
         });
       });
-
-    // mysqlDatabase.connection.getConnection((err, connection) => {
-    //   if (err) {
-    //     res.status(500).json({
-    //       status: "inValid",
-    //       message: "QR code is not valid",
-    //     });
-    //     return;
-    //   }
-    //   connection.execute("select * from users", (err, result, fields) => {
-    //     if (err) {
-    //       res.status(400).json({
-    //         data: "Error Occured!",
-    //       });
-    //       return;
-    //     }
-    //     res.json(result);
-    //   });
-    // });
-
-    // console.log(req.query.content);
-    // const data = {
-    //   status: "inValid",
-    //   message: "QR code is not valid",
-    // };
-    // res.json(data);
   }
 }
 module.exports = new ApiController();

@@ -1,14 +1,15 @@
 const feedbacks = require("./models/feedbacks");
+const Seats = require("./models/seats");
 
 class SiteController {
   home(req, res, next) {
     res.render("home");
   }
-  getContact(req, res, next) {
+  contact(req, res, next) {
     console.log(req.statusCode);
     res.render("contact");
   }
-  postContact(req, res, next) {
+  saveFeedback(req, res, next) {
     const { name, email, title, message } = req.body;
     const feedback = new feedbacks({
       name,

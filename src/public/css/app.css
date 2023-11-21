@@ -1,145 +1,113 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* font-family: 'Playfair Display', serif; */
-  font-family: "Roboto", sans-serif;
-}
+  font-family: "Roboto", sans-serif; }
 
 @keyframes fadein {
   0% {
-    opacity: 0;
-  }
+    opacity: 0; }
   100% {
-    opacity: 1;
-  }
-}
+    opacity: 1; } }
 
 body {
   background: linear-gradient(-45deg, #dd9f8c, #daa2b6, #83bbcf, #6db6a5);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
-  height: 100vh;
-}
+  min-height: 100vh; }
 
 .nav-tabs .nav-link.active {
   background-color: #305838;
-  color: #ffffff;
-}
+  color: #ffffff; }
 
 .nav-tabs .nav-link:not(.active) {
   background-color: #cccccc;
-  color: #000000;
-}
+  color: #000000; }
 
 .nav-tabs .nav-link {
-  margin-right: 5px;
-}
+  margin-right: 5px; }
 
 @keyframes gradient {
   0% {
-    background-position: 0% 50%;
-  }
+    background-position: 0% 50%; }
   50% {
-    background-position: 100% 50%;
-  }
+    background-position: 100% 50%; }
   100% {
-    background-position: 0% 50%;
-  }
-}
+    background-position: 0% 50%; } }
 
 h1 {
   font-family: Arial, Helvetica, sans-serif;
-  line-height: 35px;
-}
+  line-height: 35px; }
 
 .carousel-img {
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; }
 
 .calendar-name {
   display: flex;
-  flex-direction: row;
-}
-.calendar-name .calendar {
-  max-width: 100px;
-  min-width: 85px;
-  background-color: white;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-.calendar-name .calendar .month-year {
-  background-color: #f03737;
-  color: white;
-  font-size: 12px;
-  padding: 2px;
-  margin: 0;
-}
-.calendar-name .calendar .day {
-  font-size: 30px;
-  margin: 5px 0 5px 0;
-  padding: 0;
-}
-.calendar-name .calendar .day-of-week {
-  border-top: 1px groove #c7c1c5;
-  margin: 0;
-  font-size: 12px;
-}
-.calendar-name .name-ticket {
-  margin: 0 0 0 20px;
-  font-size: 20px;
-}
+  flex-direction: row; }
+  .calendar-name .calendar {
+    max-width: 100px;
+    min-width: 85px;
+    background-color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; }
+    .calendar-name .calendar .month-year {
+      background-color: #f03737;
+      color: white;
+      font-size: 12px;
+      padding: 2px;
+      margin: 0; }
+    .calendar-name .calendar .day {
+      font-size: 30px;
+      margin: 5px 0 5px 0;
+      padding: 0; }
+    .calendar-name .calendar .day-of-week {
+      border-top: 1px groove #c7c1c5;
+      margin: 0;
+      font-size: 12px; }
+  .calendar-name .name-ticket {
+    margin: 0 0 0 20px;
+    font-size: 20px; }
 
 .date {
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 13px;
-}
-.date .duration {
-  margin-left: 20px;
-}
-.date .duration .time-start {
-  margin: 0;
-}
-.date .duration .time-finish {
-  margin: 0;
-}
+  font-size: 13px; }
+  .date .duration {
+    margin-left: 20px; }
+    .date .duration .time-start {
+      margin: 0; }
+    .date .duration .time-finish {
+      margin: 0; }
 
 .location {
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 13px;
-}
-.location .address {
-  margin: 0;
-  margin-left: 20px;
-}
+  font-size: 13px; }
+  .location .address {
+    margin: 0;
+    margin-left: 20px; }
 
 .seat {
-  font-size: 12px;
+  font-size: 7px;
   background-color: #bebcbc;
   margin: 2px;
   border-radius: 5px;
-  padding: 0;
-}
+  padding: 0; }
 
 #seat-container {
   border-radius: 5px;
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 .seat.selected {
-  background-color: #09a309;
-}
+  background-color: #09a309; }
 
 .seat.booked {
-  background-color: red;
-}
+  background-color: red; }

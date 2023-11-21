@@ -7,6 +7,7 @@ const tickets = new Schema({
   phone: String,
   hashCode: String,
   donate: String,
+  seats: [String],
 });
 
 module.exports = mongoose.model("tickets", tickets);

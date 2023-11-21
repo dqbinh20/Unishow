@@ -12,10 +12,12 @@ const contentsProgressThird = document.getElementById(
   "container-progress-third"
 );
 
+// next to process
 const nextProgressBtn_1 = document.getElementById("btn-next-progress-1");
 const nextProgressBtn_2 = document.getElementById("btn-next-progress-2");
 const postFormTicketBtn = document.getElementById("post-form-ticket-btn");
 
+// back to process
 document.getElementById("backToProgress1").addEventListener("click", () => {
   displayProgress1();
 });
@@ -23,6 +25,7 @@ document.getElementById("backToProgress2").addEventListener("click", () => {
   displayProgress2();
 });
 
+// function display process
 function displayProgress1() {
   // progress-bar
   progressBar.style.width = "0";
@@ -53,14 +56,12 @@ function displayProgress3() {
   progressSecond.style.backgroundColor = "#dc3545";
   progressThird.style.backgroundColor = "#dc3545";
   // content
-  contentsProgressSecond.style.display = "none";
+  contentsProgressFirst.style.display = "none";
   contentsProgressSecond.style.display = "none";
   contentsProgressThird.style.display = "block";
 }
 
-displayProgress1();
-
-// const seats = document.querySelectorAll(".seat:not(.booked)");
+const seats = document.querySelectorAll(".seat:not(.booked)");
 // const totalMoney = document.getElementById("total-money");
 
 // const seatVipNameTable = document.getElementById("seat-vip-name-table");
@@ -74,55 +75,54 @@ displayProgress1();
 // var selectedSeatVip = [];
 // var selectedSeatNormal = [];
 
-// seats.forEach((seat) => {
-//   seat.addEventListener("click", () => {
-//     document.getElementById("seatError").style.display = "none";
+seats.forEach((seat) => {
+  seat.addEventListener("click", () => {
+    document.getElementById("seatError").style.display = "none";
 
-//     if (seat.classList.contains("selected")) {
-//       seat.classList.remove("selected");
+    if (seat.classList.contains("selected")) {
+      seat.classList.remove("selected");
 
-//       if (seat.innerText[0] < "F") {
-//         //seat vip
-//         selectedSeatVip = selectedSeatVip.filter(function (seatRemove) {
-//           return seatRemove != seat.innerText;
-//         });
-//         seatVipNameTable.innerText = selectedSeatVip.toString();
-//         numberSeatVipTable.innerText = selectedSeatVip.length;
-//       } else {
-//         // seat normal
-//         selectedSeatNormal = selectedSeatNormal.filter(function (seatRemove) {
-//           return seatRemove != seat.innerText;
-//         });
-//         seatNormalNameTable.innerText = selectedSeatNormal.toString();
-//         numberSeatNormalTable.innerText = selectedSeatNormal.length;
-//       }
-//     } else {
-//       seat.classList.add("selected");
+      // if (seat.innerText[0] < "F") {
+      //   //seat vip
+      //   selectedSeatVip = selectedSeatVip.filter(function (seatRemove) {
+      //     return seatRemove != seat.innerText;
+      //   });
+      //   seatVipNameTable.innerText = selectedSeatVip.toString();
+      //   numberSeatVipTable.innerText = selectedSeatVip.length;
+      // } else {
+      //   // seat normal
+      //   selectedSeatNormal = selectedSeatNormal.filter(function (seatRemove) {
+      //     return seatRemove != seat.innerText;
+      //   });
+      //   seatNormalNameTable.innerText = selectedSeatNormal.toString();
+      //   numberSeatNormalTable.innerText = selectedSeatNormal.length;
+      // }
+    } else {
+      seat.classList.add("selected");
 
-//       if (seat.innerText[0] < "F") {
-//         // seat vip
-//         selectedSeatVip.push(seat.innerText);
-//         seatVipNameTable.innerText = selectedSeatVip.toString();
-//         numberSeatVipTable.innerText = selectedSeatVip.length;
-//       } else {
-//         //seat normal
-//         selectedSeatNormal.push(seat.innerText);
-//         seatNormalNameTable.innerText = selectedSeatNormal.toString();
-//         numberSeatNormalTable.innerText = selectedSeatNormal.length;
-//       }
-//     }
-//     totalMoney.innerText =
-//       selectedSeatVip.length * 1.2 + selectedSeatNormal.length;
-//   });
-// });
+      // if (seat.innerText[0] < "F") {
+      //   // seat vip
+      //   selectedSeatVip.push(seat.innerText);
+      //   seatVipNameTable.innerText = selectedSeatVip.toString();
+      //   numberSeatVipTable.innerText = selectedSeatVip.length;
+      // } else {
+      //   //seat normal
+      //   selectedSeatNormal.push(seat.innerText);
+      //   seatNormalNameTable.innerText = selectedSeatNormal.toString();
+      //   numberSeatNormalTable.innerText = selectedSeatNormal.length;
+      // }
+    }
+    // totalMoney.innerText =
+    //   selectedSeatVip.length * 1.2 + selectedSeatNormal.length;
+  });
+});
 
 nextProgressBtn_1.addEventListener("click", () => {
-  // if (selectedSeatVip.length == 0 && selectedSeatNormal.length == 0) {
-  //   document.getElementById("seatError").style.display = "block";
-  // } else {
-  //   displayProgress2();
-  // }
-  displayProgress2();
+  if (document.querySelectorAll(".seat.selected").length === 0) {
+    document.getElementById("seatError").style.display = "block";
+  } else {
+    displayProgress2();
+  }
 });
 
 progress2();
@@ -176,10 +176,10 @@ postFormTicketBtn.addEventListener("click", () => {
   var emailInput = document.getElementById("inputEmail").value;
   var phoneInput = document.getElementById("phoneNumber").value;
   var donateInput = document.getElementById("donate-input").value;
-  // var seatNameInput = [];
-  // document.querySelectorAll(".selected").forEach((seat) => {
-  //   seatNameInput.push(seat.dataset.seat);
-  // });
+  var seatNameInput = [];
+  document.querySelectorAll(".selected").forEach((seat) => {
+    seatNameInput.push(seat.dataset.seat);
+  });
 
   var form = document.createElement("form");
   form.method = "POST";
@@ -209,24 +209,12 @@ postFormTicketBtn.addEventListener("click", () => {
   donateField.value = donateInput;
   form.appendChild(donateField);
 
-  // var seatNameField = document.createElement("input");
-  // seatNameField.type = "hidden";
-  // seatNameField.name = "seats";
-  // seatNameField.value = seatNameInput;
-  // form.appendChild(seatNameField);
+  var seatNameField = document.createElement("input");
+  seatNameField.type = "hidden";
+  seatNameField.name = "seats";
+  seatNameField.value = seatNameInput;
+  form.appendChild(seatNameField);
 
   document.body.appendChild(form);
   form.submit();
 });
-
-// const bookButton = document.getElementById("book-button");
-// bookButton.addEventListener("click", function () {
-//   var selectedSeat = document.querySelectorAll(".seat.selected");
-//   if (selectedSeat.length == 0) {
-//     alert("Please choose one");
-//   } else {
-//     selectedSeat.forEach((seat) => {
-//       console.log(seat.dataset);
-//     });
-//   }
-// });
