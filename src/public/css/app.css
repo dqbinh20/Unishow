@@ -95,19 +95,53 @@ h1 {
     margin: 0;
     margin-left: 20px; }
 
+.san-khau {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  letter-spacing: 5px;
+  font-size: 0.7rem;
+  color: white;
+  font-weight: bold; }
+
+.end-row-seat {
+  width: 50%; }
+
 .seat {
   font-size: 7px;
-  background-color: #bebcbc;
   margin: 2px;
   border-radius: 5px;
-  padding: 0; }
+  padding: 0;
+  color: white; }
 
 #seat-container {
   border-radius: 5px;
   cursor: pointer; }
 
+.seat.special {
+  background-color: #c750a5;
+  color: white; }
+
+.seat.vip {
+  background-color: #df6161;
+  color: white; }
+
+.seat.normal {
+  background-color: #688592; }
+
 .seat.selected {
-  background-color: #09a309; }
+  background-color: #7dff7d;
+  color: #000000; }
 
 .seat.booked {
-  background-color: red; }
+  background-color: #bebcbc; }
+
+.color-script {
+  border-radius: 3px;
+  margin-right: 7px;
+  display: block;
+  width: 15px;
+  height: 20px; }
+
+.bankinfo {
+  display: flex;
+  flex-direction: column;
+  text-align: left; }

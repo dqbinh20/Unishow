@@ -59,21 +59,64 @@ function displayProgress3() {
   contentsProgressFirst.style.display = "none";
   contentsProgressSecond.style.display = "none";
   contentsProgressThird.style.display = "block";
+
+  let seatSpecial = document.querySelectorAll(".selected.special");
+  let seatVip = document.querySelectorAll(".selected.vip");
+  let seatNormal = document.querySelectorAll(".selected.normal");
+  let specialLenght = seatSpecial.length;
+  let vipLength = seatVip.length;
+  let normalLength = seatNormal.length;
+
+  if (specialLenght > 0) {
+    let tdName = document.getElementById("special-name-table");
+    tdName.innerHTML = "";
+    seatSpecial.forEach((seat) => {
+      tdName.innerHTML += seat.dataset.seat + " ";
+    });
+    let tdLength = document.getElementById("special-length-table");
+    tdLength.innerText = specialLenght;
+    document.getElementById("special-row-table").style.display = "table-row";
+  } else {
+    document.getElementById("special-row-table").style.display = "none";
+  }
+
+  if (vipLength > 0) {
+    let tdName = document.getElementById("vip-name-table");
+    tdName.innerHTML = "";
+    seatVip.forEach((seat) => {
+      tdName.innerHTML += seat.dataset.seat + " ";
+    });
+    let tdLength = document.getElementById("vip-length-table");
+    tdLength.innerText = vipLength;
+    document.getElementById("vip-row-table").style.display = "table-row";
+  } else {
+    document.getElementById("vip-row-table").style.display = "none";
+  }
+
+  if (normalLength > 0) {
+    let tdName = document.getElementById("normal-name-table");
+    tdName.innerHTML = "";
+    seatNormal.forEach((seat) => {
+      tdName.innerHTML += seat.dataset.seat + " ";
+    });
+    let tdLength = document.getElementById("normal-length-table");
+    tdLength.innerText = normalLength;
+    document.getElementById("normal-row-table").style.display = "table-row";
+  } else {
+    document.getElementById("normal-row-table").style.display = "none";
+  }
+
+  var totalPrice =
+    1000 * (specialLenght * 319 + vipLength * 119 + normalLength * 59);
+  var formattedTotalPrice = totalPrice.toLocaleString("vi-VN", {
+    style: "currency",
+    currency: "VND",
+  });
+  const totalPriceTable = document.getElementById("total-price-table");
+  totalPriceTable.innerText = formattedTotalPrice;
 }
 
 const seats = document.querySelectorAll(".seat:not(.booked)");
-// const totalMoney = document.getElementById("total-money");
-
-// const seatVipNameTable = document.getElementById("seat-vip-name-table");
-// const numberSeatVipTable = document.getElementById("number-seat-vip-table");
-
-// const seatNormalNameTable = document.getElementById("seat-normal-name-table");
-// const numberSeatNormalTable = document.getElementById(
-//   "number-seat-normal-table"
-// );
-
-// var selectedSeatVip = [];
-// var selectedSeatNormal = [];
 
 seats.forEach((seat) => {
   seat.addEventListener("click", () => {
@@ -81,39 +124,9 @@ seats.forEach((seat) => {
 
     if (seat.classList.contains("selected")) {
       seat.classList.remove("selected");
-
-      // if (seat.innerText[0] < "F") {
-      //   //seat vip
-      //   selectedSeatVip = selectedSeatVip.filter(function (seatRemove) {
-      //     return seatRemove != seat.innerText;
-      //   });
-      //   seatVipNameTable.innerText = selectedSeatVip.toString();
-      //   numberSeatVipTable.innerText = selectedSeatVip.length;
-      // } else {
-      //   // seat normal
-      //   selectedSeatNormal = selectedSeatNormal.filter(function (seatRemove) {
-      //     return seatRemove != seat.innerText;
-      //   });
-      //   seatNormalNameTable.innerText = selectedSeatNormal.toString();
-      //   numberSeatNormalTable.innerText = selectedSeatNormal.length;
-      // }
     } else {
       seat.classList.add("selected");
-
-      // if (seat.innerText[0] < "F") {
-      //   // seat vip
-      //   selectedSeatVip.push(seat.innerText);
-      //   seatVipNameTable.innerText = selectedSeatVip.toString();
-      //   numberSeatVipTable.innerText = selectedSeatVip.length;
-      // } else {
-      //   //seat normal
-      //   selectedSeatNormal.push(seat.innerText);
-      //   seatNormalNameTable.innerText = selectedSeatNormal.toString();
-      //   numberSeatNormalTable.innerText = selectedSeatNormal.length;
-      // }
     }
-    // totalMoney.innerText =
-    //   selectedSeatVip.length * 1.2 + selectedSeatNormal.length;
   });
 });
 
