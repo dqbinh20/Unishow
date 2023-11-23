@@ -107,7 +107,7 @@ function displayProgress3() {
   }
 
   var totalPrice =
-    1000 * (specialLenght * 319 + vipLength * 119 + normalLength * 59);
+    1000 * (specialLenght * 159 + vipLength * 119 + normalLength * 59);
   var formattedTotalPrice = totalPrice.toLocaleString("vi-VN", {
     style: "currency",
     currency: "VND",
