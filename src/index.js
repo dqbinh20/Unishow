@@ -130,10 +130,10 @@ app.listen(port, () => {
 // saveSeatssSequentially();
 
 // xoa ve
-// const Ticket = require("./app/controllers/models/tickets");
-// const Seat = require("./app/controllers/models/seats");
+const Ticket = require("./app/controllers/models/tickets");
+const Seat = require("./app/controllers/models/seats");
 
-// const hashCode = "ed84b33b";
+// const hashCode = "56cd68ed";
 // Ticket.findOne({ hashCode })
 //   .then((ticket) => {
 //     if (!ticket) {
