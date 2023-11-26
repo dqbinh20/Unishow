@@ -51,26 +51,26 @@
       <div class="col-md p-md-5">
         <p class="fs-3 fw-bold">Danh sách ghế ngồi</p>
 
-        <div class="row mb-3">
-          <div class="col-md d-flex">
-            <span class="color-script" style="background-color: #c750a5;"></span>
-            <span>Ghế đặt biệt - 139.000 vnd </span>
+        <div class="container col mb-3">
+          <div class="row mb-1 d-flex">
+            <span class="col color-script" style="background-color: #c750a5;"></span>
+            <span class="col">Ghế đặc biệt - 169.000 vnd </span>
           </div>
-          <div class="col-md d-flex">
-            <span class="color-script" style="background-color: #df6161;"></span>
-            <span>Ghế VIP - 119.000 vnd</span>
+          <div class="row mb-1 d-flex">
+            <span class="col color-script" style="background-color: #df6161;"></span>
+            <span class="col">Ghế VIP - 149.000 vnd</span>
           </div>
-          <div class="col-md d-flex">
-            <span class="color-script" style="background-color: #688592;"></span>
-            <span>Ghế thường - 59.000 vnd</span>
+          <div class="row mb-1 d-flex">
+            <span class="col color-script" style="background-color: #688592;"></span>
+            <span class="col">Ghế thường - 89.000 vnd</span>
           </div>
-          <div class="col-md d-flex">
-            <span class="color-script" style="background-color: rgb(125, 255, 125);"></span>
-            <span>Ghế đã đặt</span>
+          <div class="row mb-1 d-flex">
+            <span class="col color-script" style="background-color: rgb(125, 255, 125);"></span>
+            <span class="col">Ghế đang chọn</span>
           </div>
-          <div class="col-md d-flex">
-            <span class="color-script" style="background-color: rgb(190, 188, 188);"></span>
-            <span>Ghế đang chọn</span>
+          <div class="row mb-1 d-flex">
+            <span class="col color-script" style="background-color: rgb(190, 188, 188);"></span>
+            <span class="col">Ghế đã đặt</span>
           </div>
         </div>
 
@@ -116,7 +116,7 @@
   {{! progress 3 }}
   <div class="container mt-5" style="display: none;" id="container-progress-third">
     <h3 class="mb-2">Chương trình Share Warmth</h3>
-    <p class="mt-3" style="line-height: 25px;">
+    <p class="mt-3" sty le="line-height: 25px;">
       Tất cả số tiền này sẽ được công bố công khai trên trang UNI SHOW, tất cả sẽ được BTC giúp bạn chuyển đến cho các
       bạn trẻ ở Trung tâm bảo trợ xã hội nuôi dưỡng trẻ mồ côi và khuyết tật Hướng Dương.
     </p>
@@ -124,7 +124,7 @@
     <div class="row">
       <div class="col-md">
         <div class="mb-4">
-          <p class="form-label fs-6">Số tiền bạn sẽ ủng hộ cho chương trình</p>
+          <p class="form-label fs-6">Số tiền bạn sẽ ủng hộ</p>
           <div class="container row" style="font-size: 13px;">
             <input class="col-5 bg-white p-2 rounded-start-2" id="donate-input" type="number" placeholder="nhập số tiền"
               style="border: none; max-width:12rem">
@@ -132,7 +132,6 @@
           </div>
         </div>
         <p class="form-label fs-6">Danh sách ghế đã chọn</p>
-        <small style="color:rgb(153, 35, 35)">với vé đặt biệt, số tiền ủng hộ là cố định (200.000 vnđ)</small>
         <table style="font-size: 13px;" class="table price-table">
           <thead>
             <tr>
@@ -145,46 +144,53 @@
             <tr id="special-row-table">
               <td id="special-name-table"></td>
               <td id="special-length-table"></td>
-              <td>139.000 ₫</td>
+              <td>169.000 ₫</td>
             </tr>
             <tr id="vip-row-table">
               <td id="vip-name-table"></td>
               <td id="vip-length-table"></td>
-              <td>119.000 ₫</td>
+              <td>149.000 ₫</td>
             </tr>
             <tr id="normal-row-table">
               <td id="normal-name-table"></td>
               <td id="normal-length-table"></td>
-              <td>59.000 ₫</td>
+              <td>89.000 ₫</td>
             </tr>
           </tbody>
           <tfoot>
-            <tr style="font-weight: bold;">
-              <td colspan="1">Tổng cộng</td>
-              <td></td>
-              <td id="total-price-table">100000 ₫</td>
+            <tr>
+              <td style="font-weight: bold;" colspan="1">Tổng cộng</td>
+              <td>(tiền vé và tiền ủng hộ)</td>
+              <td style="font-weight: bold;" id="total-price-table">100000 ₫</td>
             </tr>
           </tfoot>
         </table>
       </div>
 
-      
-      
       <div class="col-md bg-white  text-center rounded-4" style="display: block;">
         <p>Thông tin chuyển khoản</p>
+        <p class="fw-bold border border-success rounded" style="font-size: 14px;">Nội dung chuyển khoản :
+                <span id="content-bank"></span>
+                <button class="btn rounded"
+                  style="padding:0 3px 0 3px; font-size:12px; background-color:rgb(168, 147, 147);"
+                  onclick="copyContentBank()">Copy</button>
+              </p>
         <div class="row text-center mb-2">
           <div class="col">
             <img class="img-fluid rounded" src="/img/momo.png" alt="">
-            <a href="https://me.momo.vn/MRIBTbs5FgtBu9tquOunCd" class="btn mt-2"
-              style="font-size: 12px; background-color:#69a7dd ">Thanh toán bằng điện thoại</a>
+            <a href="https://me.momo.vn/4GIGTgtjiVFKsNuNTzFzfE?fbclid=IwAR20WHOWKvJqL7PQMj1VOpU06LdKjDA_m1sk9DRaxGkgIinPsSs4zNoGRv8"
+              class="btn mt-2" style="font-size: 12px; background-color:#69a7dd ">Thanh toán bằng điện thoại</a>
           </div>
 
           <div class="col rounded-2 border border-success" style="margin-right:10px;">
-            <p class="mb-4">Chuyển khoản ngân hàng</p>
-            <div class=" bankinfo">
-              <p style="font-size: 13px;">Tên ngân hàng : Sacombank</p>
-              <p style="font-size: 13px;">Số tài khoản: <span id="accountNumber">040089128538</span> <button class="btn rounded" style="padding:0 3px 0 3px; font-size:12px; background-color:rgb(168, 147, 147);"
-                  onclick="copyAccountNumber()">Copy</button></p>
+            {{!-- <p class="mb-4">Chuyển khoản ngân hàng</p> --}}
+            <div class=" bankinfo mb-1">
+              <img class="img-fluid rounded" src="/img/bankqr.png" alt="">
+              <small style="font-size: 11px;">Tên ngân hàng : MB Bank</small>
+              <small style="font-size: 11px;">Chủ tài khoản : Trần Trọng Lịnh</small>
+              <small style="font-size: 11px;">Số tài khoản: <span id="accountNumber">0562212002</span><button
+                  class="btn rounded" style="padding:0 3px 0 3px; font-size:12px; background-color:rgb(168, 147, 147);"
+                  onclick="copyAccountNumber()">Copy</button></small>
             </div>
           </div>
           <script>
@@ -192,6 +198,16 @@
               var accountNumber = document.getElementById('accountNumber');
               var textArea = document.createElement('textarea');
               textArea.value = accountNumber.textContent;
+              document.body.appendChild(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              document.body.removeChild(textArea);
+            }
+
+            function copyContentBank(){
+              var contentBank = document.getElementById('content-bank');
+              var textArea = document.createElement('textarea');
+              textArea.value = contentBank.textContent;
               document.body.appendChild(textArea);
               textArea.select();
               document.execCommand('copy');

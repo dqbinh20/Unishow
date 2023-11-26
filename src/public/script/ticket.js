@@ -67,11 +67,16 @@ function displayProgress3() {
   let vipLength = seatVip.length;
   let normalLength = seatNormal.length;
 
+  // content-bank
+  const contentBankSpan = document.getElementById("content-bank");
+  var contentBankValue = document.getElementById("fullName").value + "|";
+
   if (specialLenght > 0) {
     let tdName = document.getElementById("special-name-table");
     tdName.innerHTML = "";
     seatSpecial.forEach((seat) => {
       tdName.innerHTML += seat.dataset.seat + " ";
+      contentBankValue += seat.dataset.seat;
     });
     let tdLength = document.getElementById("special-length-table");
     tdLength.innerText = specialLenght;
@@ -85,6 +90,7 @@ function displayProgress3() {
     tdName.innerHTML = "";
     seatVip.forEach((seat) => {
       tdName.innerHTML += seat.dataset.seat + " ";
+      contentBankValue += seat.dataset.seat;
     });
     let tdLength = document.getElementById("vip-length-table");
     tdLength.innerText = vipLength;
@@ -98,6 +104,7 @@ function displayProgress3() {
     tdName.innerHTML = "";
     seatNormal.forEach((seat) => {
       tdName.innerHTML += seat.dataset.seat + " ";
+      contentBankValue += seat.dataset.seat;
     });
     let tdLength = document.getElementById("normal-length-table");
     tdLength.innerText = normalLength;
@@ -106,14 +113,44 @@ function displayProgress3() {
     document.getElementById("normal-row-table").style.display = "none";
   }
 
+  contentBankSpan.textContent = contentBankValue;
+
   var totalPrice =
-    1000 * (specialLenght * 159 + vipLength * 119 + normalLength * 59);
+    1000 * (specialLenght * 169 + vipLength * 149 + normalLength * 89);
   var formattedTotalPrice = totalPrice.toLocaleString("vi-VN", {
     style: "currency",
     currency: "VND",
   });
   const totalPriceTable = document.getElementById("total-price-table");
   totalPriceTable.innerText = formattedTotalPrice;
+
+  const donateInput = document.getElementById("donate-input");
+  // donateInput.addEventListener("Keydown", function (event) {
+  //   console.log(donateInput.value.length);
+  //   if (donateInput.value.length >= 11) {
+  //     event.preventDefault();
+  //   }
+  // });
+
+  donateInput.addEventListener("keypress", function (event) {
+    if (donateInput.value.length >= 11) {
+      event.preventDefault();
+      return;
+    }
+  });
+
+  donateInput.addEventListener("input", function (event) {
+    if (donateInput.value) {
+      totalPrice =
+        parseInt(donateInput.value, 10) +
+        1000 * (specialLenght * 169 + vipLength * 149 + normalLength * 89);
+      formattedTotalPrice = totalPrice.toLocaleString("vi-VN", {
+        style: "currency",
+        currency: "VND",
+      });
+      totalPriceTable.innerText = formattedTotalPrice;
+    }
+  });
 }
 
 const seats = document.querySelectorAll(".seat:not(.booked)");

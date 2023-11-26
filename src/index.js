@@ -133,7 +133,13 @@ app.listen(port, () => {
 const Ticket = require("./app/controllers/models/tickets");
 const Seat = require("./app/controllers/models/seats");
 
-// const hashCode = "56cd68ed";
+// Seat.countDocuments({ booked: true })
+//   .then((result) => {
+//     console.log(result);
+//   })
+//   .catch((err) => {});
+
+// const hashCode = "4520558b";
 // Ticket.findOne({ hashCode })
 //   .then((ticket) => {
 //     if (!ticket) {
